@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  lmf:
+    container_name: lmf
+    image: lmf:latest
+    # pull_policy: always
+    command: "/bin/bash start.sh"
+    # command: sleep 999999
+    expose:
+      - "4321"
+    ports:
+      - "9090:9090/sctp"
+      - "9091:9091/udp"
+      - "4321:4321"
+    volumes:
+      - ./envoy_proxy/envoy.yaml:/etc/envoy/envoy.yaml
+      - ./src/config.py:/LMF/src/config.py
+      # - ./src:/LMF/src
+    restart: on-failure
+    networks:
+      privnet:
+        aliases:
+          - lmf_net.org
+        ipv4_address: 10.100.200.130
+
+networks:
+  privnet:
+    external: true
+    name: free5gc-compose_privnet
+    # name: demo-oai-public-net
