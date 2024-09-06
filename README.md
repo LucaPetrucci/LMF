@@ -116,6 +116,11 @@ cd LMF
 python src/lmf_server_api.py
 ```
 
+## Acknowledge
+This software is supported by:
+- 6G-SANDBOX, Horizon Europe funded research project
+- FIND-OUT project founded by an European Research Council grant
+- Italian PNRR RESTART Program
 
 ## License
 
