@@ -1,9 +1,6 @@
 from ubuntu:jammy
 
-
-
 # Install python
-# ENV TZ=Europe/Rome
 RUN apt update
 RUN apt upgrade -y
 RUN apt install curl software-properties-common apt-transport-https gnupg2 lsb-release vim -y
@@ -34,7 +31,7 @@ RUN pip install --force-reinstall websocket-client
 
 COPY ../envoy_proxy/envoy.yaml /etc/envoy/envoy.yaml
 
-COPY pytdoa/ LMF/pytdoa/
+
 COPY LICENSE LMF/
 # COPY src/config.py LMF/src/
 COPY src/HandleLocation.py src/lmf_instance.py src/lmf_server_api.py src/LPP_handler.py src/LPP_message_gen.py LMF/src/
