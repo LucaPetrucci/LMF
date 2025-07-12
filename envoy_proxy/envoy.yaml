@@ -1,6 +1,5 @@
 static_resources:
   listeners:
-  # - "@type": type.googleapis.com/envoy.config.listener.v3.Listener
     name: listener_0
     address:
       socket_address:
@@ -58,13 +57,6 @@ static_resources:
                   prefix: "/"
                 route:
                   cluster: lmf_instance
-
-                # direct_response:
-                #   status: 200
-                #   body:
-                #     inline_string: "CIAO\n"
-
-
   clusters:
   - name: lmf_instance
     connect_timeout: 5s
